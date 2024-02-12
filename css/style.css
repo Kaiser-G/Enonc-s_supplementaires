@@ -1,0 +1,47 @@
+/*Feuille de style pour les exos de 1 à 6*/
+* {
+    margin: 0;
+    padding: 0;
+
+}
+
+body {
+    background-color: antiquewhite;
+    margin-left: 5%;
+    margin-right: 5%;
+}
+
+h1 {
+    text-align: center;
+    margin-top: 2%;
+    margin-bottom: 3%;
+}
+
+p {
+    text-align: center;
+}
+
+.trait {
+    text-align: center;
+    border: 2px solid black;
+    margin-bottom: 5%;
+    margin-top: 2%;
+    margin-left: 15%;
+    margin-right: 15%;
+}
+
+
+
+#asaisir {
+    text-align: center;
+    width: 25%;
+}
+
+#btn {
+    margin-left: 3%;
+}
+
+#message {
+    text-align: center;
+    margin-top: 5%;
+}
