@@ -93,7 +93,7 @@
     </form>
 
 
-    <h3 id="message">Message §§</h3>
+    <h3 id="message">NE FONCTIONNE PAS !!!</h3>
 
 
 
@@ -111,13 +111,18 @@
         window.addEventListener('load', (event) => {
             // Le code de PROGRAMME PRINCIPAL
 
-            btn = document.getElementById("btn");
+            let btn = document.getElementById("btn");
 
             btn.addEventListener("click",
                 (event) => {
                     let mail = document.getElementById("saisi");
                     let message = document.getElementById("message");
-                    if ((mail.indexOf("@") != -1) && (mail.indexOf(".") = -1)) {
+
+                    //permet de récupérer la valeur du texte frappé
+                    let saisi = new RegExp(/^[a-zA-Z]{2,}@[a-zA-Z]{2,}.[a-zA-Z]{2,}$/);
+                    result = saisi.test(mail);
+
+                    if (result) {
                         message.innerHTML = "<h2>votre mail est valide</h2>";
                         event.preventDefault();
                     } else {
@@ -125,6 +130,16 @@
                         //Permet de désactiver l'envoi du formulaire
                         event.preventDefault();
                     }
+
+
+                    // if ((saisi.indexOf("@") != -1) && (saisi.indexOf(".") = -1)) {
+                    //     message.innerHTML = "<h2>votre mail est valide</h2>";
+                    //     event.preventDefault();
+                    // } else {
+                    //     message.innerHTML = "Votre mail est invalide";
+                    //     //Permet de désactiver l'envoi du formulaire
+                    //     event.preventDefault();
+                    // }
                 }, false);
 
         });
