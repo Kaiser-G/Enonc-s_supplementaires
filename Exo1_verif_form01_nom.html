@@ -74,7 +74,7 @@
         Si la contrainte n’est pas respectée lorsque l’on clique sur le bouton SUBMIT (« ENVOYER »), un message d’erreur
         est
         envoyé et l’on reste sur le formulaire.<br>
-        Si la contrainte est respectée, le nom est envoyé au site AFPA.</p>
+        Si la contrainte est respectée, le nom est envoyé au site AFPA.</p><br>
 
     <div class="trait"></div>
 
@@ -83,7 +83,7 @@
     <form action="http://www.afpa.fr" method="get">
         <div class="row g-0">
             <h2 id="asaisir" class="col-sm-6 col-md-8">Nom :</h2>
-            <input class="col col-md-4" type="text">
+            <input id="saisi" class="col col-md-4" type="text">
             <input id="btn" class="col col-md-1 btn btn-primary" type="submit" value="Envoyer">
 
         </div>
@@ -91,7 +91,7 @@
     </form>
 
 
-    <h3 id="message">Message §§</h3>
+    <h3 id="message"></h3>
 
 
 
@@ -108,6 +108,25 @@
         // Se déclenche lorsque TOUTE LA PAGE est chargée (Style, images etc..)
         window.addEventListener('load', (event) => {
             // Le code de PROGRAMME PRINCIPAL
+
+            let btn = document.getElementById("btn");
+
+            btn.addEventListener("click",
+                (event) => {
+                    let message = document.getElementById("message");
+                    let texte = document.getElementById("saisi");
+                    //permet de récupérer la valeur du texte frappé
+                    let saisi = texte.value.length;
+
+                    if ((saisi > 2) && (saisi < 5)) {
+
+                    } else {
+                        message.innerHTML = "<h2>Longueur du Nom incorrecte</h2>";
+                        //Permet de désactiver l'envoi du formulaire
+                        event.preventDefault();
+                    }
+                }
+                , false);
 
         });
 

@@ -10,7 +10,7 @@
 
     <link rel="stylesheet" href="./css/style.css">
     <link rel="shortcut icon" href="./images/lezard.png" type="image/x-icon">
-    <title>Exo01</title>
+    <title>Exo02</title>
 </head>
 
 <body>
@@ -67,14 +67,14 @@
 
     <h1>Exercice 2</h1>
 
-    <p>Réaliser un formulaire qui envoie les informations vers http://www.afpa.fr en méthode GET.
-        Ce formulaire permet de saisir un SALAIRE.
-        Contrainte : Le SALAIRE doit être saisi (taille > 0) et doit être numérique.
-        Fonctionnement :
+    <p>Réaliser un formulaire qui envoie les informations vers http://www.afpa.fr en méthode GET.<br>
+        Ce formulaire permet de saisir un SALAIRE.<br>
+        Contrainte : Le SALAIRE doit être saisi (taille > 0) et doit être numérique.<br>
+        Fonctionnement :<br>
         Si la contrainte n’est pas respectée lorsque l’on clique sur le bouton SUBMIT (« ENVOYER »), un message d’erreur
         est
-        envoyé et l’on reste sur le formulaire.
-        Si la contrainte est respectée, le salaire est envoyé au site AFPA.</p>
+        envoyé et l’on reste sur le formulaire.<br>
+        Si la contrainte est respectée, le salaire est envoyé au site AFPA.</p><br>
 
     <div class="trait"></div>
 
@@ -82,8 +82,8 @@
 
     <form action="http://www.afpa.fr" method="post">
         <div class="row g-0">
-            <h2 id="asaisir" class="col-sm-6 col-md-8">Nom :</h2>
-            <input class="col col-md-4" type="text">
+            <h2 id="asaisir" class="col-sm-6 col-md-8">Salaire :</h2>
+            <input id="saisi" class="col col-md-4" type="text">
             <input id="btn" class="col col-md-1 btn btn-primary" type="submit" value="Envoyer">
 
         </div>
@@ -91,9 +91,7 @@
     </form>
 
 
-    <h3 id="message">Message §§</h3>
-
-
+    <h3 id="message"></h3>
 
 
     <!--Début du javascript-->
@@ -108,7 +106,31 @@
         // Se déclenche lorsque TOUTE LA PAGE est chargée (Style, images etc..)
         window.addEventListener('load', (event) => {
             // Le code de PROGRAMME PRINCIPAL
+            let btn = document.getElementById("btn");
 
+            btn.addEventListener("click",
+                (event) => {
+                    let message = document.getElementById("message");
+                    let salaire = document.getElementById("saisi");
+
+                    let longueur = salaire.value.trim().length;
+
+                    if (longueur == 0) {
+                        alert("Le salaire doit être saisi");
+                        event.preventDefault();
+                    } else {
+
+                        if (isNaN(salaire.value)) {
+                            message.innerHTML = "Rentrez des nombres";
+                            //Permet de désactiver l'envoi du formulaire
+                            event.preventDefault();
+
+                        } else {
+                            message.innerHTML = "GO";
+                        }
+                    }
+                }
+                , false);
         });
 
 
