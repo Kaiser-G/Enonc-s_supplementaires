@@ -93,7 +93,7 @@
     </form>
 
 
-    <h3 id="message">NE FONCTIONNE PAS !!!</h3>
+    <h3 id="message">NE FONCTIONNE PAS</h3>
 
 
 
@@ -118,9 +118,8 @@
                     let mail = document.getElementById("saisi");
                     let message = document.getElementById("message");
 
-                    //permet de récupérer la valeur du texte frappé
-                    let saisi = new RegExp(/^[a-zA-Z]{2,}@[a-zA-Z]{2,}.[a-zA-Z]{2,}$/);
-                    result = saisi.test(mail);
+                    let pattern = /^[a-zA-Z]{2,}@[a-zA-Z]{2,}\.[a-zA-Z]{2,}$/;
+                    let result = pattern.test(mail);
 
                     if (result) {
                         message.innerHTML = "<h2>votre mail est valide</h2>";

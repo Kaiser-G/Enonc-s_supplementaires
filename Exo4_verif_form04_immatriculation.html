@@ -67,14 +67,14 @@
 
     <h1>Exercice 4</h1>
 
-    <p>Réaliser un formulaire qui envoie les informations vers http://www.afpa.fr en méthode GET.
-        Ce formulaire permet de saisir un N° de plaque d’immatriculation.
-        Contrainte : Une adresse mail doit contenir au moins 9 caractères au format « CC-NNN-CC ».
-        Fonctionnement :
+    <p>Réaliser un formulaire qui envoie les informations vers http://www.afpa.fr en méthode GET.<br>
+        Ce formulaire permet de saisir un N° de plaque d’immatriculation.<br>
+        Contrainte : Une adresse mail doit contenir au moins 9 caractères au format « CC-NNN-CC ».<br>
+        Fonctionnement :<br>
         Si la contrainte n’est pas respectée lorsque l’on clique sur le bouton SUBMIT (« ENVOYER »), un message d’erreur
         est
-        envoyé et l’on reste sur le formulaire.
-        Si la contrainte est respectée, la plaque est envoyée au site AFPA.</p>
+        envoyé et l’on reste sur le formulaire.<br>
+        Si la contrainte est respectée, la plaque est envoyée au site AFPA.</p><br>
 
     <div class="trait"></div>
 
@@ -82,8 +82,8 @@
 
     <form action="http://www.afpa.fr" method="post">
         <div class="row g-0">
-            <h2 id="asaisir" class="col-sm-6 col-md-8">Nom :</h2>
-            <input class="col col-md-4" type="text">
+            <h2 id="asaisir" class="col-sm-6 col-md-8">N° de plaque :</h2>
+            <input id="saisi" class="col col-md-4" type="text">
             <input id="btn" class="col col-md-1 btn btn-primary" type="submit" value="Envoyer">
 
         </div>
@@ -108,6 +108,44 @@
         // Se déclenche lorsque TOUTE LA PAGE est chargée (Style, images etc..)
         window.addEventListener('load', (event) => {
             // Le code de PROGRAMME PRINCIPAL
+            let btn = document.getElementById("btn");
+
+            // let test = "coucou";
+            // let resultat = /^[a-z]/.test(test);
+            // console.log(resultat);
+
+            // let test = "bonjour";
+            // let pattern = /^coucou/;
+            // let resultat = pattern.test(test);
+            // console.log(resultat);
+
+            // if (resultat) {
+            //     alert("OK");
+            // }
+
+            btn.addEventListener("click",
+                (event) => {
+                    let immat = document.getElementById("saisi");
+                    let message = document.getElementById("message");
+                    let pattern = /^[a-z]$/;
+                    let resultat = pattern.test(immat);
+                    console.log(resultat);
+
+                    if (resultat) {
+                        alert("OK");
+                        event.preventDefault();
+
+                    } else {
+                        alert("Pas OK");
+                        event.preventDefault();
+
+                    }
+
+
+
+                }
+
+                , false);
 
         });
 
