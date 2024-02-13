@@ -47,16 +47,6 @@
                         <li class="nav-item">
                             <a class="nav-link" href="Exo7_verif_form07_complet.html">Exercice 7</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="Exo8.html">Exercice 8</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="Exo9.html">Exercice 9</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="Exo10.html">Exercice 10</a>
-                        </li>
-
                     </ul>
                 </div>
             </div>
@@ -125,19 +115,23 @@
 
             btn.addEventListener("click",
                 (event) => {
-                    let immat = document.getElementById("saisi");
+                    let immat = document.getElementById("saisi").value;
                     let message = document.getElementById("message");
-                    let pattern = /^[a-z]$/;
+
+                    let pattern = /^[A-Z]{2}-[0-9]{3}-[A-Z]{2}$/;
                     let resultat = pattern.test(immat);
+                    console.log(immat);
                     console.log(resultat);
 
                     if (resultat) {
                         alert("OK");
                         event.preventDefault();
+                        message.innerHTML = "Merci";
 
                     } else {
                         alert("Pas OK");
                         event.preventDefault();
+                        message.innerHTML = "Rentrez votre numéro d'immat";
 
                     }
 

@@ -47,16 +47,6 @@
                         <li class="nav-item">
                             <a class="nav-link" href="Exo7_verif_form07_complet.html">Exercice 7</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="Exo8.html">Exercice 8</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="Exo9.html">Exercice 9</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="Exo10.html">Exercice 10</a>
-                        </li>
-
                     </ul>
                 </div>
             </div>
@@ -93,7 +83,7 @@
     </form>
 
 
-    <h3 id="message">NE FONCTIONNE PAS</h3>
+    <h3 id="message"></h3>
 
 
 
@@ -115,7 +105,7 @@
 
             btn.addEventListener("click",
                 (event) => {
-                    let mail = document.getElementById("saisi");
+                    let mail = document.getElementById("saisi").value;
                     let message = document.getElementById("message");
 
                     let pattern = /^[a-zA-Z]{2,}@[a-zA-Z]{2,}\.[a-zA-Z]{2,}$/;
