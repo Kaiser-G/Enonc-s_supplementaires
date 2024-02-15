@@ -57,39 +57,52 @@
 
     <h1>Exercice 6</h1>
 
-    <p>Réaliser un formulaire qui envoie les informations vers http://www.afpa.fr en méthode GET.
-        Ce formulaire permet de saisir un login et un mot de passe (utiliser le input type password).
-        Contrainte :
-        • Le login et le mot de passe doivent avoir une longueur > 0 (c’est-à-dire qu’ils doivent être renseignés)
-        • Les 2 seuls couples (login, mot de passe) valides sont :
-        Login=admin avec le mot de passe=123
-        Login=toto avec le mot de passe=456
-
-        Fonctionnement :
+    <p>Réaliser un formulaire qui envoie les informations vers http://www.afpa.fr en méthode GET.<br>
+        Ce formulaire permet de saisir un login et un mot de passe (utiliser le input type password).<br>
+        Contrainte :<br>
+        • Le login et le mot de passe doivent avoir une longueur > 0 (c’est-à-dire qu’ils doivent être renseignés)<br>
+        • Les 2 seuls couples (login, mot de passe) valides sont :<br>
+        Login=admin avec le mot de passe=123<br>
+        Login=toto avec le mot de passe=456<br>
+        <br>
+        Fonctionnement :<br>
         Si la contrainte n’est pas respectée lorsque l’on clique sur le bouton SUBMIT (« ENVOYER »), un message d’erreur
         est
-        envoyé et l’on reste sur le formulaire.
-        Si la contrainte est respectée, le login et le mot de passe sont envoyés au site AFPA.</p>
+        envoyé et l’on reste sur le formulaire.<br>
+        Si la contrainte est respectée, le login et le mot de passe sont envoyés au site AFPA.
+    </p>
 
     <div class="trait"></div>
 
     <!--Début de l'exo-->
 
-    <form action="http://www.afpa.fr" method="post">
+    <!-- <form action="http://www.afpa.fr" method="post">
         <div class="row g-0">
             <h2 id="asaisir" class="col-sm-6 col-md-8">Nom :</h2>
-            <input class="col col-md-4" type="text">
+            <input id="saisi" class="col col-md-4" type="text">
+            <h2 id="asaisir" class="col-sm-6 col-md-8">Nom :</h2>
+            <input id="saisi" class="col col-md-4" type="text">
             <input id="btn" class="col col-md-1 btn btn-primary" type="submit" value="Envoyer">
+        </div>
 
+    </form> -->
+
+
+    <!--action permet d'envoyer les infos a cette "adresse" page-->
+    <form action="" method="get">
+        <div class="row g-0">
+            <h2 id="login" class="col">LOGIN :</h2>
+            <input id="log" class="col col-md-4" type="text" name="LOGIN">
+
+            <h2 id="password" class="col-sm-6 col-md-8">PASSWORD :</h2>
+            <input id="pass" class="col col-md-4" type="password" name="PASSWORD">
+            <input id="btn" class="col col-md-1 btn btn-primary" type="submit" value="Envoyer">
         </div>
 
     </form>
 
 
     <h3 id="message">A Faire</h3>
-
-
-
 
     <!--Début du javascript-->
 
@@ -103,6 +116,31 @@
         // Se déclenche lorsque TOUTE LA PAGE est chargée (Style, images etc..)
         window.addEventListener('load', (event) => {
             // Le code de PROGRAMME PRINCIPAL
+
+            let btn = document.getElementById("btn");
+
+            btn.addEventListener("click",
+                (event) => {
+                    let login = document.getElementById("log").value;
+                    let pass = document.getElementById("pass").value;
+                    let message = document.getElementById("message");
+
+                    let pattern = /^[0-9]{2}[/][0-9]{2}[/][0-9]{4}$/;
+                    let resultat = pattern.test(date);
+
+
+                    if (resultat) {
+                        // alert("OK");
+                        event.preventDefault();
+                        message.innerHTML = "Merci";
+
+                    } else {
+                        // alert("Pas OK");
+                        event.preventDefault();
+                        message.innerHTML = "Rentrez une date valide jj/mm/aaaa";
+
+                    }
+                }, false);
 
         });
 
