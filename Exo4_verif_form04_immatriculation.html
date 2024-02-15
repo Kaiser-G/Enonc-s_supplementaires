@@ -10,7 +10,7 @@
 
     <link rel="stylesheet" href="./css/style.css">
     <link rel="shortcut icon" href="./images/lezard.png" type="image/x-icon">
-    <title>Exo01</title>
+    <title>Exo04</title>
 </head>
 
 <body>
@@ -59,12 +59,14 @@
 
     <p>Réaliser un formulaire qui envoie les informations vers http://www.afpa.fr en méthode GET.<br>
         Ce formulaire permet de saisir un N° de plaque d’immatriculation.<br>
-        Contrainte : Une adresse mail doit contenir au moins 9 caractères au format « CC-NNN-CC ».<br>
+        <strong>Contrainte : Une adresse mail doit contenir au moins 9 caractères au format
+            « CC-NNN-CC »"AA-555-BB.</strong><br>
         Fonctionnement :<br>
         Si la contrainte n’est pas respectée lorsque l’on clique sur le bouton SUBMIT (« ENVOYER »), un message d’erreur
         est
         envoyé et l’on reste sur le formulaire.<br>
-        Si la contrainte est respectée, la plaque est envoyée au site AFPA.</p><br>
+        Si la contrainte est respectée, la plaque est envoyée au site AFPA.
+    </p><br>
 
     <div class="trait"></div>
 
@@ -81,7 +83,7 @@
     </form>
 
 
-    <h3 id="message">Message §§</h3>
+    <h3 id="message"></h3>
 
 
 
@@ -100,19 +102,6 @@
             // Le code de PROGRAMME PRINCIPAL
             let btn = document.getElementById("btn");
 
-            // let test = "coucou";
-            // let resultat = /^[a-z]/.test(test);
-            // console.log(resultat);
-
-            // let test = "bonjour";
-            // let pattern = /^coucou/;
-            // let resultat = pattern.test(test);
-            // console.log(resultat);
-
-            // if (resultat) {
-            //     alert("OK");
-            // }
-
             btn.addEventListener("click",
                 (event) => {
                     let immat = document.getElementById("saisi").value;
@@ -124,22 +113,17 @@
                     console.log(resultat);
 
                     if (resultat) {
-                        alert("OK");
+                        // alert("OK");
                         event.preventDefault();
                         message.innerHTML = "Merci";
 
                     } else {
-                        alert("Pas OK");
+                        // alert("Pas OK");
                         event.preventDefault();
                         message.innerHTML = "Rentrez votre numéro d'immat";
 
                     }
-
-
-
-                }
-
-                , false);
+                }, false);
 
         });
 

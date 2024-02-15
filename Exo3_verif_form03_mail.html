@@ -112,10 +112,10 @@
                     let result = pattern.test(mail);
 
                     if (result) {
-                        message.innerHTML = "<h2>votre mail est valide</h2>";
+                        message.innerHTML = "<h2 class= alert-success>Votre mail est valide</h2>";
                         event.preventDefault();
                     } else {
-                        message.innerHTML = "Votre mail est invalide";
+                        message.innerHTML = " <h2 class= alert-danger>Votre mail est invalide</h2>";
                         //Permet de désactiver l'envoi du formulaire
                         event.preventDefault();
                     }
